@@ -1,0 +1,391 @@
+/* General styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    /* Добавлено padding-bottom для учета фиксированного футера */
+    padding-bottom: 60px; /* Примерное значение, должно быть равно или больше высоты футера */
+    background-color: #f4f4f4;
+    color: #333;
+    /* Чтобы футер был прижат к низу, даже если контента мало */
+    min-height: 100vh;
+    position: relative; /* Для позиционирования футера */
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.header-container {
+    display: flex; /* Используем flexbox для выравнивания элементов в шапке */
+    justify-content: space-between; /* Распределяем пространство между элементами */
+    align-items: center; /* Выравниваем элементы по вертикали по центру */
+    max-width: 1200px; /* Ограничиваем максимальную ширину контента */
+    margin: 0 auto; /* Выравниваем контейнер по центру страницы */
+}
+
+.site-title {
+    flex-grow: 1; /* Позволяет заголовку занять доступное пространство */
+    text-align: center; /* Выравниваем текст заголовка по центру */
+}
+
+.site-title h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Выравниваем пункты меню горизонтально */
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.auth-info {
+    text-align: right; /* Выравниваем информацию об авторизации по правому краю */
+}
+
+.auth-info p {
+    margin: 5px 0;
+}
+
+.auth-info a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.auth-info a:hover {
+    text-decoration: underline;
+}
+
+
+main {
+    max-width: 1200px; /* Ограничиваем максимальную ширину основного контента */
+    margin: 20px auto; /* Выравниваем основной контент по центру и добавляем отступы */
+    padding: 0 20px;
+    /* Добавлено для учета фиксированного футера, если контента мало */
+    padding-bottom: 40px; /* Примерное значение, чтобы контент не перекрывался футером */
+}
+
+/* Auth Form Styles (для login.php и register.php) */
+.auth-form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.auth-form-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="email"],
+.form-group input[type="text"], /* Добавлен input[type="text"] для никнейма */
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Учитываем padding в ширине */
+}
+
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #4cae4c;
+}
+
+.auth-form-container p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth-form-container p a {
+    color: #5cb85c;
+    text-decoration: none;
+}
+
+.auth-form-container p a:hover {
+    text-decoration: underline;
+}
+
+/* Alert Messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+.alert.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.alert.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+
+/* Movies Grid Styles */
+.movies-grid {
+    display: grid; /* Используем CSS Grid для создания сетки */
+    /* Настраиваем количество столбцов. repeat(auto-fill, minmax(150px, 1fr))
+       создаст столько столбцов, сколько поместится, каждый минимум 150px,
+       и растянется, чтобы заполнить доступное пространство. */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px; /* Отступ между элементами сетки */
+}
+
+.movie-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Выравниваем содержимое элемента по центру */
+}
+
+.movie-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    word-wrap: break-word; /* Перенос длинных слов */
+}
+
+.movie-item p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+/* Fixed Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    /* Стили для фиксированного футера */
+    position: fixed; /* Делает футер фиксированным */
+    bottom: 0; /* Прижимает к нижнему краю окна просмотра */
+    width: 100%; /* Растягивает на всю ширину */
+    left: 0; /* Прижимает к левому краю */
+    z-index: 10; /* Убедитесь, что футер находится поверх другого контента */
+    box-sizing: border-box; /* Включаем padding в общую ширину */
+    height: 50px; /* Задаем фиксированную высоту футера */
+    line-height: 10px; /* Выравниваем текст по центру по вертикали */
+}
+
+/* Дополнительный отступ внизу body, чтобы контент не скрывался за футером */
+body {
+    padding-bottom: 50px; /* Должно быть равно высоте футера */
+}
+/* ... (предыдущие стили) ... */
+
+/* Auth Form Styles (для login.php и register.php) */
+.auth-form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* ... (стили внутри auth-form-container, как были) ... */
+
+
+/* Alert Messages */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* ... (стили .alert.success и .alert.error, как были) ... */
+
+
+/* Movies Grid Styles */
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Немного увеличена минимальная ширина */
+    gap: 20px;
+}
+
+.movie-item {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex; /* Используем flexbox для расположения содержимого */
+    flex-direction: column; /* Располагаем элементы по вертикали */
+    justify-content: space-between; /* Распределяем пространство */
+    height: 100%; /* Занимаем всю высоту ячейки грида */
+}
+
+.movie-item img {
+    max-width: 100%;
+    height: auto; /* Сохраняем пропорции */
+    border-radius: 4px;
+    margin-bottom: 10px; /* Отступ после обложки */
+    object-fit: cover; /* Обрезка изображения для заполнения контейнера (опционально) */
+    /* Можно задать фиксированную высоту для обложки, если хотите */
+    /* height: 250px; */
+}
+
+.movie-item h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    word-wrap: break-word;
+    flex-grow: 1; /* Позволяет заголовку занимать доступное пространство */
+}
+
+.movie-item p {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0; /* Уменьшаем отступы между параграфами */
+}
+
+/* Стиль для жанров, если их много */
+.movie-item p:last-of-type {
+    margin-bottom: 0;
+}
+
+
+/* Fixed Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    z-index: 10;
+    box-sizing: border-box;
+    height: 50px; /* Убедитесь, что это значение совпадает с padding-bottom в body */
+    line-height: 10px;
+}
+
+/* Дополнительный отступ внизу body, чтобы контент не скрывался за футером */
+body {
+    padding-bottom: 50px; /* Должно быть равно высоте футера */
+}
+
+/* --- Новые стили --- */
+
+/* Profile Styles (для profile.php) */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.profile-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+.profile-info p {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #555;
+}
+.profile-info span {
+    font-weight: bold;
+    color: #333;
+}
+.profile-links {
+    margin-top: 20px;
+    text-align: center;
+}
+.profile-links a {
+    margin: 0 10px;
+    color: #5cb85c;
+    text-decoration: none;
+}
+.profile-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* Add Movie Form Styles (для add_movie.php) */
+.add-movie-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.add-movie-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+/* form-group, input, textarea, button styles уже есть */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+.form-group input[type="file"] {
+    padding: 5px;
+}
+.genre-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #ccc; /* Добавлена рамка */
+    padding: 10px; /* Добавлены внутренние отступы */
+    border-radius: 4px;
+}
+.genre-checkboxes label {
+    font-weight: normal;
+     margin-bottom: 0;
+}
+.genre-checkboxes input[type="checkbox"] {
+    margin-right: 5px; /* Отступ справа от чекбокса */
+}
